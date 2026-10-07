@@ -6,6 +6,9 @@ on:
     tags:
       - "cli-v*"
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ${{ matrix.config.os }}
