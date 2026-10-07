@@ -46,6 +46,10 @@ jobs:
         shell: bash
         run: ls -R ./Source/AssetRipper.CLI/bin/Release/${{ matrix.config.runtime }}/publish/
 
+      - name: Strip debug symbols
+        shell: bash
+        run: rm -fv ./Source/AssetRipper.CLI/bin/Release/${{ matrix.config.runtime }}/publish/*.pdb
+
       - name: Archive (zip)
         if: ${{ matrix.config.archive == 'zip' }}
         run: |
