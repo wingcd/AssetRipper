@@ -41,19 +41,19 @@ jobs:
 
       - name: List Files
         shell: bash
-        run: ls -R ./Source/0Bins/AssetRipper.CLI/Release/
+        run: ls -R ./Source/AssetRipper.CLI/bin/Release/${{ matrix.config.runtime }}/publish/
 
       - name: Archive (zip)
         if: ${{ matrix.config.archive == 'zip' }}
         run: |
-          cd ./Source/0Bins/AssetRipper.CLI/Release/${{ matrix.config.runtime }}/publish/
+          cd ./Source/AssetRipper.CLI/bin/Release/${{ matrix.config.runtime }}/publish/
           7z a "$GITHUB_WORKSPACE/AssetRipper.CLI_${{ matrix.config.name }}.zip" .
         shell: bash
 
       - name: Archive (tar)
         if: ${{ matrix.config.archive == 'tar' }}
         run: |
-          cd ./Source/0Bins/AssetRipper.CLI/Release/${{ matrix.config.runtime }}/publish/
+          cd ./Source/AssetRipper.CLI/bin/Release/${{ matrix.config.runtime }}/publish/
           tar -czf "$GITHUB_WORKSPACE/AssetRipper.CLI_${{ matrix.config.name }}.tar.gz" .
         shell: bash
 
